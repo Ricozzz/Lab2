@@ -26,7 +26,7 @@ Lab report
     &D1nDnnnn&nDDnn,           ,DM&DnnnDDDDDDDDDnnDDDDDDDnnnDDDDDDnDDDnDDDn1,         ,1DMD,                    
     &&nn&D&&DnD&+             +&MDnnDDDDDnDDnnnnnnDDDDDDDDDDDDDDnDDDDDnnDDDDnn1++,,+1DMMM&nn111111nnDDDnn1,     
     DnD&n1nn11+              nM&nnDDDDDDnnDnnDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD&&MM&&&DDDD&&&&&&&&Dn+,+&M+     
-     ,+,                    DM&DDDDDDDDnnnnnnDDDDDDDDDDDDDDnnnDDDDDDDDD&&&&&&&&&&&DDnnnnnDnnnnnnnnDDDnDDn+      
+    ,+,                    DM&DDDDDDDDnnnnnnDDDDDDDDDDDDDDnnnDDDDDDDDD&&&&&&&&&&&DDnnnnnDnnnnnnnnDDDnDDn+      
                         ,DMDDDnDDDDDDnDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDnDDDnnnnnnnnnDDDDD&&&&&&DD1+,        
                        ,DMDnDDDDDnnDnnDDDDDnDDnDDDDDDDDDDDDDDDDDDDDDDDnnDDnnDDD&&&&&&&&&&&Dn11+,,             
                       1MMDnnDDDDDnnDnDDDDDDnnDDDDDDnnDDDnnnnnnnnnnnnnDDDDD&&&&DD111++++,,                     
