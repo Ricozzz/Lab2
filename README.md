@@ -19,14 +19,14 @@ Lab report
            ,++D&&&+       +&MDnnD&MD1     +DMMM&&DDDDDDDDDDDDDnDDDDDD&&&DDD1,   +11+   +1D&DDD&Mn++++,        
          +nDDDD&&1+,       ,M&nDnDD&M&D++nM&&MMM&DDDnDDDDDDDDDDnnnnnnnnDDn,     +1n+,    1DDnn&M+             
         1&Dn111n&&&n        nMDDnDDnnD&MMMDnDD&&&&&&&DnDDDDDDDnnnDDDDDD&D+   ,nDn1+11DD+ ,1D&&M&+             
-       1&n1nDDDDn&&nnDn,    ,M&DnDDnnD&M&DnDDnnnnnnD&&nnDDDDDDDD&&D&DDDn+    ,n&&&&M&&n    1DM&1+1+           
-  +1n11&Dn&D++++1&M&DD1,     nM&DnnD&MMDnDDDDDDnnDDnn&&&DnDDDDDDDDDnDDn+        ,,++,     +&MD,   ,           
-  &&&MDn1D&D+++Dn++,          nM&D&M&DnDDDDDDDDnnDDDDnD&&DDDDDDDDDDDDDD+                 1M&+                 
-  &DD11nn11DDnDD&+             nMM&DnnDDDDDDDDnnDDDDDDnDDDDDDDDnnnDDnnDn+              +&Mn,                  
-  &D1nDnnnn&nDDnn,           ,DM&DnnnDDDDDDDDDnnDDDDDDDnnnDDDDDDnDDDnDDDn1,         ,1DMD,                    
-  &&nn&D&&DnD&+             +&MDnnDDDDDnDDnnnnnnDDDDDDDDDDDDDDnDDDDDnnDDDDnn1++,,+1DMMM&nn111111nnDDDnn1,     
-  DnD&n1nn11+              nM&nnDDDDDDnnDnnDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD&&MM&&&DDDD&&&&&&&&Dn+,+&M+     
-   ,+,                    DM&DDDDDDDDnnnnnnDDDDDDDDDDDDDDnnnDDDDDDDDD&&&&&&&&&&&DDnnnnnDnnnnnnnnDDDnDDn+      
+       1&n1nDDDDn&&nnDn,    ,M&DnDDnnD&M&DnDDnnnnnnD&&nnDDDDDDDD&&D&DDDn+    ,n&&&&M&&n    1DM&1+1+
+    +1n11&Dn&D++++1&M&DD1,     nM&DnnD&MMDnDDDDDDnnDDnn&&&DnDDDDDDDDDnDDn+        ,,++,     +&MD,   ,           
+    &&&MDn1D&D+++Dn++,          nM&D&M&DnDDDDDDDDnnDDDDnD&&DDDDDDDDDDDDDD+                 1M&+                 
+    &DD11nn11DDnDD&+             nMM&DnnDDDDDDDDnnDDDDDDnDDDDDDDDnnnDDnnDn+              +&Mn,                  
+    &D1nDnnnn&nDDnn,           ,DM&DnnnDDDDDDDDDnnDDDDDDDnnnDDDDDDnDDDnDDDn1,         ,1DMD,                    
+    &&nn&D&&DnD&+             +&MDnnDDDDDnDDnnnnnnDDDDDDDDDDDDDDnDDDDDnnDDDDnn1++,,+1DMMM&nn111111nnDDDnn1,     
+    DnD&n1nn11+              nM&nnDDDDDDnnDnnDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD&&MM&&&DDDD&&&&&&&&Dn+,+&M+     
+     ,+,                    DM&DDDDDDDDnnnnnnDDDDDDDDDDDDDDnnnDDDDDDDDD&&&&&&&&&&&DDnnnnnDnnnnnnnnDDDnDDn+      
                         ,DMDDDnDDDDDDnDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDnDDDnnnnnnnnnDDDDD&&&&&&DD1+,        
                        ,DMDnDDDDDnnDnnDDDDDnDDnDDDDDDDDDDDDDDDDDDDDDDDnnDDnnDDD&&&&&&&&&&&Dn11+,,             
                       1MMDnnDDDDDnnDnDDDDDDnnDDDDDDnnDDDnnnnnnnnnnnnnDDDDD&&&&DD111++++,,                     
