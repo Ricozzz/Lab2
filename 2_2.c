@@ -81,18 +81,18 @@ int main(void)
 	
 	while (1)
 	{
-		if (flag == 0)                               //²úÉúÏÂ½µÑØ
+		if (flag == 0)                               //äº§ç”Ÿä¸‹é™æ²¿
 		{
 			TCCR1B = (1 << CS10);                     //1 prescalar
 		}
-		else if (flag == 1)                          //²¶»ñÂö¿í
+		else if (flag == 1)                          //æ•è·è„‰å®½
 		{
 			DDRB |= (0 << PORTB0);
 			CaptureInput();
 			flag = 2;
 			cli();
 		}
-		else                                         //´®¿ÚÊä³ö
+		else                                         //ä¸²å£è¾“å‡º
 		{
 			
 			SignalOutput();
