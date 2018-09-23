@@ -19,15 +19,15 @@ char buffer[8];
 int l = 0;
 int c = 0;
 
-void setup_ADC()
+void setup_ADC()                             //ADC set up
 {
-	ADMUX = (1 << REFS0);//�Ƚϵ�ѹ5v 
+	ADMUX = (1 << REFS0);//±È½ÏµçÑ¹5v 
 	ADCSRA = (1 << ADEN) | ( 1 << ADATE) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);//
-	//DIDR0 = (1 << ADC5D); Ĭ��0     ADC prescalar 128
+	//DIDR0 = (1 << ADC5D); Ä¬ÈÏ0     ADC prescalar 128
 	ADCSRB = (1 << ADTS2) | (1 << ADTS1);
 }
 
-uint16_t adc_read(uint16_t ch)
+uint16_t adc_read(uint16_t ch)          // can be deleted
 {
 	ch &= 0x00;
 	ADMUX = (ADMUX & 0xF8) | ch;
@@ -36,7 +36,7 @@ uint16_t adc_read(uint16_t ch)
 	return(ADC);
 }
 
-void SignalProcess()
+void SignalProcess()                  //output ADC value
 {
 	l = sprintf(buffer, "%hu\n", adc_read(0));
 	//for (i)
@@ -50,11 +50,11 @@ void SignalProcess()
 	}
 	c = 0;
 	//	UDR0 = '8';
-	_delay_ms(5000);
+	_delay_ms(500);
 	//UDR0 = '\n';
 }
 
-void discreteFreq()
+void discreteFreq()             //discrete voltage to eight parts
 {
 	SignalProcess();   //max 1019  min 37
 	
