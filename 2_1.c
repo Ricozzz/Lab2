@@ -8,7 +8,7 @@
 #include <avr/io.h>
 //#include <avr/interrupt.h>
 
-int main(void)
+int main(void)                     //CTC mode
 {
     DDRD = (1 << PORTD6);
 	TCCR0A = (1 << WGM01) | (1 << COM0A0);// | (1 << COM0A0);
