@@ -20,7 +20,7 @@ int l = 0;
 uint16_t lenth = 0;
 int mid = 0;
 
-ISR(TIMER1_COMPA_vect)
+ISR(TIMER1_COMPA_vect)               //generate falling edge
 {
 	PORTB ^= (1 << PORTB1);
 	flag = 1;
@@ -41,7 +41,7 @@ void CaptureInput()
 	lenth =  ICR1 - temp;
 }
 
-void SignalOutput()
+void SignalOutput()                    
 {
 	
 	l = sprintf(buffer, "%hu\n", lenth);
@@ -56,12 +56,12 @@ void SignalOutput()
 	}
 	c = 0;
 	//	UDR0 = '8';
-	_delay_ms(5000);
+	_delay_ms(500);
 	//UDR0 = '\n';
 	flag = 0;
 }
 
-void FrequencyOutput()
+void FrequencyOutput()                         //calculate the frequency
 {
 	mid = lenth / 1093 +60;
 	OCR0A = mid;
@@ -97,31 +97,31 @@ int main(void)
 	
 	while (1)
 	{
-		if (flag == 0)                               //产生下降沿
+		if (flag == 0)                               //trigger rangefinder
 		{
 			TCCR1B = (1 << CS10);                     //1 prescalar
 			UDR0 = '\n';
 		}
-		else if (flag == 1)                          //捕获脉宽
+		else if (flag == 1)                          //capture lenth
 		{
 			DDRB |= (0 << PORTB0);
 			CaptureInput();
 			flag = 2;
 			//cli();
 		}
-		else                                         //串口输出
+		else                                         //output frequence
 		{
-			//PD6输出频率
+			//PD6杈撳嚭棰戠巼
 			FrequencyOutput();
 			_delay_ms(1000);
 			SignalOutput();  
-			PORTB |= (1 << PORTB1);
+			PORTB |= (1 << PORTB1);             //rising edge
 			sei();
 		}
 	}
 }
 
-ISR(TIMER0_COMPA_vect)
+ISR(TIMER0_COMPA_vect)                            //toggle pd6 to generate frequency
 {
 	PORTD ^= (1 << PORTD6);
 }
