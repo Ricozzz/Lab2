@@ -61,9 +61,9 @@ void SignalOutput()
 	flag = 0;
 }
 
-void FrequencyOutput1()
+void FrequencyOutput1()                           //discrete frequency to eight part
 {
-	//mid = lenth / 1093 +60;
+	//mid = lenth / 1093 +60;           // 2_3 
 	//OCR0A = mid;
 	mid = lenth;
 	switch(mid/4096)
@@ -112,7 +112,7 @@ void FrequencyOutput1()
 	sei();
 }
 
-void FrequencyOutput2()
+void FrequencyOutput2()                     // 2_3
 {
 	mid = lenth / 1093 +60;
 	OCR0A = mid;
@@ -148,7 +148,7 @@ int main(void)
 	
 	while (1)
 	{
-		if (flag == 0)                               //产生下降沿
+		if (flag == 0)                               // generate falling edge 
 		{
 			TCCR1B = (1 << CS10);                     //1 prescalar
 			//UDR0 = '\n';
@@ -156,23 +156,23 @@ int main(void)
 			//PORTB ^= (1 << PORTB1);
 			//flag = 1;
 		}
-		else if (flag == 1)                          //捕获脉宽
+		else if (flag == 1)                          //capture input
 		{
 			DDRB |= (0 << PORTB0);
 			CaptureInput();
 			flag = 2;
 			//cli();
 		}
-		else                                         //串口输出
+		else                                         //output
 		{
-			//PD6输出频率
-			if (!(PINB & 0x20))
+			//PD6杈撳嚭棰戠巼
+			if (!(PINB & 0x20))            //switch button
 			{
-				FrequencyOutput1();   //离散
+				FrequencyOutput1();   //discrete
 			}
 			else
 			{
-				FrequencyOutput2();  //连续
+				FrequencyOutput2();  //continuous
 			}
 			
 			//FrequencyOutput1();
