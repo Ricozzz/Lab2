@@ -21,9 +21,9 @@ int c = 0;
 
 void setup_ADC()
 {
-	ADMUX = (1 << REFS0);//比较电压5v
+	ADMUX = (1 << REFS0);//compare voltage 5v
 	ADCSRA = (1 << ADEN) | ( 1 << ADATE) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);//
-	//DIDR0 = (1 << ADC5D); 默认0     ADC prescalar 128
+	//DIDR0 = (1 << ADC5D); 榛樿0     ADC prescalar 128
 	ADCSRB = (1 << ADTS2) | (1 << ADTS1);
 }
 /*
@@ -50,11 +50,11 @@ void SignalProcess()
 	}
 	c = 0;
 	//	UDR0 = '8';
-	_delay_ms(5000);
+	_delay_ms(500);
 	//UDR0 = '\n';
 }
 
-void discreteFreq()
+void discreteFreq()                 // DAC  discrete voltage to parts and output to PB4:2
 {
 	SignalProcess();   //max 1019  min 37
 	
@@ -122,7 +122,7 @@ void discreteFreq()
 
 int main(void)
 {
-	//不需要了 谢谢
+	//涓嶉渶瑕佷簡 璋㈣阿
 	DDRD = (1 << DDD6);
 	PORTD = (1 << PORTD6);
 	
