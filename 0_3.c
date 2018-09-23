@@ -24,25 +24,7 @@ int main(void)
     }
 }
 
-ISR(TIMER0_COMPA_vect)
+ISR(TIMER0_COMPA_vect)      //toggle pd6
 {
 	PORTD ^= (1<<PORTD6);
 }
-/*
-int main(void)
-{
-	DDRD |= 1<<DDD6;
-	TIMSK0 = (1<<TOIE0);
-	sei();
-	TCCR0B = (1<<CS01)|(1<<CS00);
-	while (1)
-	{
-	}
-}
-
-ISR(TIMER0_OVF_vect)
-{
-	PORTD ^=(1<<PORTD6);
-}
-
-*/
