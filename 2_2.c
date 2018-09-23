@@ -19,13 +19,13 @@ int c = 0;
 int l = 0;
 uint16_t lenth = 0;
 
-ISR(TIMER1_COMPA_vect)
+ISR(TIMER1_COMPA_vect)                // use pb1 triggle range finder
 {
 	PORTB ^= (1 << PORTB1);
 	flag = 1;
 }
 
-void CaptureInput()
+void CaptureInput()                    //calculate the width
 {
 	TCCR1B |= 0x40;
 	TIFR1 |= 0x20;
@@ -40,7 +40,7 @@ void CaptureInput()
 	lenth =  ICR1 - temp;
 }
 
-void SignalOutput()
+void SignalOutput()                  //series out put to terminal
 {
 	
 	l = sprintf(buffer, "%hu\n", lenth);
@@ -81,18 +81,18 @@ int main(void)
 	
 	while (1)
 	{
-		if (flag == 0)                               //产生下降沿
+		if (flag == 0)                               //generate falling edge 
 		{
 			TCCR1B = (1 << CS10);                     //1 prescalar
 		}
-		else if (flag == 1)                          //捕获脉宽
+		else if (flag == 1)                          //caputer lenth
 		{
 			DDRB |= (0 << PORTB0);
 			CaptureInput();
 			flag = 2;
 			cli();
 		}
-		else                                         //串口输出
+		else                                         //output result
 		{
 			
 			SignalOutput();
