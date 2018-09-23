@@ -22,15 +22,15 @@ int flag = 0;
 int lenth = 0;
 int freq = 0;
 
-void setup_ADC()
+void setup_ADC()             //set up ADC
 {
-	ADMUX = (1 << REFS0);//比较电压5v
+	ADMUX = (1 << REFS0);//compare voltage 5v
 	ADCSRA = (1 << ADEN) | ( 1 << ADATE) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);//
-	//DIDR0 = (1 << ADC5D); 默认0     ADC prescalar 128
+	//DIDR0 = (1 << ADC5D); 榛樿0     ADC prescalar 128
 	ADCSRB = (1 << ADTS2) | (1 << ADTS1);
 }
 
-void SignalProcess()
+void SignalProcess()         //serial communication
 {
 	l = sprintf(buffer, "%hu\n", lenth);//adc_read(0)
 	//for (i)
@@ -44,11 +44,11 @@ void SignalProcess()
 	}
 	c = 0;
 	//	UDR0 = '8';
-	//_delay_ms(5000);
+	//_delay_ms(500);
 	//UDR0 = '\n';
 }
 
-void discreteFreq()
+void discreteFreq()            //DAC, output stage voltage to PB4:2
 {
 	//SignalProcess();   //max 1019  min 37
 	
@@ -117,7 +117,7 @@ void discreteFreq()
 
 
 
-void CaptureInput()          //测量返回脉冲宽度
+void CaptureInput()          //measure lenth from rangefinder
 {
 	TCCR1B |= 0x40;
 	TIFR1 |= 0x20;
@@ -133,7 +133,7 @@ void CaptureInput()          //测量返回脉冲宽度
 	
 }
 
-void FrequencyOutput()
+void FrequencyOutput()            //set pitch according to lenth
 {
 	
 	freq = lenth;
@@ -183,14 +183,9 @@ void FrequencyOutput()
 }
 
 
-
-
-
-
-
 int main(void)
 {
-	//不需要了 谢谢
+	//涓嶉渶瑕佷簡 璋㈣阿
 	DDRD = (1 << DDD6);
 	PORTD = (1 << PORTD6);
 	
@@ -227,7 +222,7 @@ int main(void)
 	
 	while (1)
 	{
-		if (flag == 0)                               //产生下降沿
+		if (flag == 0)                               //generate trigger to rangefinder
 		{
 			TCCR2B = (1 << CS20);
 			
@@ -239,7 +234,7 @@ int main(void)
 			//TCCR1B = (1 << CS10);                     //1 prescalar
 			//UDR0 = '\n';
 		}
-		else if (flag == 1)                          //捕获脉宽
+		else if (flag == 1)                          //capture lenth
 		{
 			//TCCR1B |= (1 << CS10) | (1 << CS11);
 			//TIMSK1 = (1 << TOIE1);
@@ -252,11 +247,11 @@ int main(void)
 			flag = 2;
 			//cli();
 		}
-		else                                         //串口输出
+		else                                         //output result
 		{
 			
-			//PD6输出频率
-			FrequencyOutput();
+			//PD6杈撳嚭棰戠巼
+			FrequencyOutput();            //frequency
 			//_delay_ms(1000);
 			flag = 0;
 			sei();
@@ -266,18 +261,18 @@ int main(void)
 	}
 }
 
-ISR(TIMER1_OVF_vect)
+ISR(TIMER1_OVF_vect)               //voltage
 {
 	discreteFreq();
 	
 }
 
-ISR(TIMER0_COMPA_vect)
+ISR(TIMER0_COMPA_vect)            //toggle PD6 as frequency
 {
 	PORTD ^= (1 << PORTD6);
 }
 
-ISR(TIMER2_COMPA_vect)
+ISR(TIMER2_COMPA_vect)                 //falling edge
 {
 	PORTB ^= (1 << PORTB1);
 	flag = 1;
