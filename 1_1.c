@@ -12,16 +12,16 @@
 
 ISR(TIMER1_CAPT_vect)
 {
-	TIFR1 |= (1 << ICF1);  //Çå³ýICPÖÐ¶Ï±êÖ¾
-	if (!(PINB & 0x01))    //Èç¹ûPB0ÎªµÍµçÆ½
+	TIFR1 |= (1 << ICF1);  //clear ICP
+	if (!(PINB & 0x01))    //
 	{
-		PORTB |= 0x20;         //PB5Êä³ö¸ßµçÆ½
-		TCCR1B |=(1 << ICES1);    //¸ÄÎªÉÏÉýÑØ´¥·¢
+		PORTB |= 0x20;         //PB5 = 1
+		TCCR1B |=(1 << ICES1);    //rising edge trigger
 	}
 	else
 	{
-		PORTB &= ~(0x20);       //PB5Êä³öµÍµçÆ½
-		TCCR1B &= ~(1 << ICES1);    //ÏÂ½µÑØ´¥·¢
+		PORTB &= ~(0x20);       //PB5 = 0
+		TCCR1B &= ~(1 << ICES1);    //falling edge
 	}
 }
 
@@ -30,9 +30,9 @@ int main(void)
     DDRB = 0x20;
 	PORTB |= (1 << PORTB0);
 
-	TCCR1B = (0 << ICES1) | (1 << CS12); //ÏÂ½µÑØ´¥·¢£¬256·ÖÆµ
-	TIMSK1 = (1 << ICIE1);  //ÊäÈë²¶»ñÊ¹ÄÜ
-	TIFR1 |= (1 << ICF1);  //Çå³ýICPÖÐ¶Ï±êÖ¾
+	TCCR1B = (0 << ICES1) | (1 << CS12); //falling edgeï¼Œ256 prescalar
+	TIMSK1 = (1 << ICIE1);  //capture input enable
+	TIFR1 |= (1 << ICF1);  //clear ICP
 	
 	sei();
 	
@@ -42,37 +42,3 @@ int main(void)
 		_delay_ms(1);
 	}
 }
-
-
-/*
-ISR(TIMER1_CAPT_vect)
-{
-	if (!(TCCR1B & (1 << ICES1)))
-	{
-		PORTB |= 0x20;
-		TCCR1B |=(1 << ICES1);
-	}
-	else
-	{
-		PORTB &= ~(0x20);
-		TCCR1B &= ~(1 << ICES1);
-	}
-}
-
-int main(void)
-{
-	DDRB = 0x20;
-	PORTB = 0x01;
-	TIMSK1 = (1 << ICIE1);
-	if (PINB & 0x01)
-	{
-		TCCR1B &= ~(1 << ICES1);
-	}
-	else
-	{
-		TCCR1B |= (1 << ICES1);
-	}
-	sei();
-	TCCR1B |= (1 << CS10);
-}
-*/
